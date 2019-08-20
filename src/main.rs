@@ -1,4 +1,4 @@
-// The 'a reads `the lifetime a'.
+// The 'a reads `the lifetime a'. 
 // https://doc.rust-lang.org/1.9.0/book/lifetimes.html
 //We read &mut i32 as `a mutable reference to an i32' and &'a mut i32
 //as `a mutable reference to an i32 with the lifetime 'a'.
@@ -13,10 +13,17 @@ impl<'a> Foo<'a> {
     }
 }
 
+// w/o the lifetimes this is an error
+fn f1<'a>() -> &'a str {
+    "asd"
+}
+
 fn main() {
     println!("rust lifetimes");
     let y = &5; // this is the same as `let _y = 5; let y = &_y;`
     let f = Foo { x: y };
 
     println!("x is: {}", f.x());
+
+    println!("f1():{}", f1());
 }
