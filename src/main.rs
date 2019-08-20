@@ -18,6 +18,12 @@ fn f1<'a>() -> &'a str {
     "asd"
 }
 
+//fn get_mut(&mut self) -> &mut T; // elided
+//fn get_mut<'a>(&'a mut self) -> &'a mut T; // expanded
+//
+//fn new(buf: &mut [u8]) -> BufWriter; // elided
+//fn new<'a>(buf: &'a mut [u8]) -> BufWriter<'a>; // expanded
+
 fn main() {
     println!("rust lifetimes");
     let y = &5; // this is the same as `let _y = 5; let y = &_y;`
